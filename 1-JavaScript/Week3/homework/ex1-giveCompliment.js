@@ -20,7 +20,7 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-Java
 -----------------------------------------------------------------------------*/
 function giveCompliment(name) {
   const compliments = ['great','awesome','magnificent','perfect','gorgeous','splendid','spectacular','terrific','exceptional','marvelous'];
-  const random = compliments[Math.floor(Math.random()*compliments.length)]
+  const random = compliments[Math.floor( Math.random() * compliments.length )]
   const sentence = `You are ${random}, ${name}!`;
   return sentence;
 }

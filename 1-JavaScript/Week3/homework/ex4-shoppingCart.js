@@ -24,19 +24,13 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(item) {
-  if(item===undefined){
-    return `You bought ${shoppingCart.join(', ')}!`;
-  }else{
-    if(shoppingCart.length<3){
-      shoppingCart.push(item);
-      return `You bought ${shoppingCart.join(', ')}!`;
-    }else{
-      shoppingCart.push(item);
-      shoppingCart.shift();
-      return `You bought ${shoppingCart.join(', ')}!`;
-    }
-
-  } 
+  if(item && shoppingCart.length <3){
+    shoppingCart.push(item);
+  } else if(item && shoppingCart.length >= 3){
+    shoppingCart.push(item)
+    shoppingCart.shift()
+  }
+  return `You bought ${shoppingCart.join(', ')}!`;
 }
 // ! Test functions (plain vanilla JavaScript)
 function test1() {

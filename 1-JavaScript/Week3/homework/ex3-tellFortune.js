@@ -34,11 +34,11 @@ body, this code is now written once only in a separated function.
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
 function selectRandomly(anArray) {
-  const random = anArray[Math.floor(Math.random()*anArray.length)]
+  const random = anArray[Math.floor(Math.random() * anArray.length)]
   return random;
 }
 
-function tellFortune(kidsArray,partnerArray,locationArray,jobArray) {
+function tellFortune(kidsArray, partnerArray, locationArray, jobArray) {
   const kid = selectRandomly(kidsArray);
   const partner = selectRandomly(partnerArray);
   const location = selectRandomly(locationArray);
