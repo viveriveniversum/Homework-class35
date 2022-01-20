@@ -156,3 +156,8 @@ ex2-aboutMe/index.js:18:24 - Unknown word (Doner)
 
 ex3-hijackLogo.js:11:52 - Unknown word (Xdpd)
 
+2022-01-21 12:12:22 info: --------------------------------------------
+2022-01-21 12:12:22 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2022-01-21 12:12:22 info: --------------------------------------------
+2022-01-21 12:12:37 info: All unit tests passed.
+2022-01-21 12:12:44 info: All steps were completed successfully
