@@ -18,7 +18,7 @@ https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 //cspell: enable
 
 function createBookList(books) {
-  const images = ['./assets/the_design_of_everyday_things.jpg', './assets/the_most_human_human.jpg','./assets/the_pragmatic_programmer.jpg'];
+  const images = ['./assets/the_design_of_everyday_things.jpg',  './assets/the_most_human_human.jpg','./assets/the_pragmatic_programmer.jpg'];
   const ulElement = document.createElement('ul');
   ulElement.style.listStyle = 'none';
   ulElement.style.display = 'flex';
