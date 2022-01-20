@@ -18,7 +18,32 @@ https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 //cspell: enable
 
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
+  const images = ['./assets/the_design_of_everyday_things.jpg', './assets/the_most_human_human.jpg','./assets/the_pragmatic_programmer.jpg'];
+  const ulElement = document.createElement('ul');
+  ulElement.style.listStyle = 'none';
+  ulElement.style.display = 'flex';
+  ulElement.style.flexWrap = 'wrap';
+  ulElement.style.padding = '20px';
+  ulElement.style.width = 'calc( 100% - 41px)';
+  books.forEach((item,index) => {
+    const liElement = document.createElement('li');
+    liElement.style.width = 'calc(25% - 51px)';
+    liElement.style.margin = '15px';
+    liElement.style.padding ='10px';
+    liElement.style.minWidth = '350px';
+    liElement.style.display = 'list-item';
+    liElement.style.textAlign = '-webkit-match-parent';
+    const titleAndAuthor = document.createElement('p');
+    titleAndAuthor.textContent = `${item.title} - ${item.author}`;
+    const img = document.createElement('img');
+    img.style.maxWidth = '225px';
+    img.src = images[index];
+    item.alreadyRead ? liElement.style.backgroundColor = 'green' :  liElement.style.backgroundColor = 'red';
+    liElement.appendChild(titleAndAuthor);
+    liElement.appendChild(img)
+    ulElement.appendChild(liElement)
+  });
+  return ulElement;
 }
 
 function main() {
