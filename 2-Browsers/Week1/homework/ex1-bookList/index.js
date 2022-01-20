@@ -38,6 +38,7 @@ function createBookList(books) {
     const img = document.createElement('img');
     img.style.maxWidth = '225px';
     img.src = images[index];
+    img.alt = 'book';
     item.alreadyRead ? liElement.style.backgroundColor = 'green' :  liElement.style.backgroundColor = 'red';
     liElement.appendChild(titleAndAuthor);
     liElement.appendChild(img)

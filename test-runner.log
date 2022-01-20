@@ -91,3 +91,68 @@ ex6-totalCost.js
 2021-12-19 02:28:32 info: -------------------------------------------
 2021-12-19 02:28:32 warn: A unit test file was not provided.
 2021-12-19 02:28:37 info: All steps were completed successfully
+2022-01-20 11:25:56 info: ----------------------------------------
+2022-01-20 11:25:56 info: >>> Running Unit Test `ex1-bookList` <<<
+2022-01-20 11:25:56 info: ----------------------------------------
+2022-01-20 11:26:08 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-bookList.test.js --colors
+ FAIL  2-Browsers/Week1/unit-tests/ex1-bookList.test.js (6.655 s)
+  Generated HTML
+    ✕ HTML should be syntactically valid (152 ms)
+    ✓ should have all TODO comments removed (1 ms)
+    ✓ should contain a <ul> that is a child of <div id="bookList"> (2 ms)
+    ✓ should contain a <ul> with 3 <li> elements (2 ms)
+    ✓ should contain an <li> with title and author for each book of the `myBooks` array (2 ms)
+    ✓ should contain an <img> element for each book (1 ms)
+
+  ● Generated HTML › HTML should be syntactically valid
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "
+    inline
+      10:339  error  <img> is missing required \"alt\" attribute  wcag/h37
+      10:632  error  <img> is missing required \"alt\" attribute  wcag/h37
+      10:916  error  <img> is missing required \"alt\" attribute  wcag/h37·
+    ✖ 3 problems (3 errors, 0 warnings)
+    "
+
+      44 |   const { results } = htmlValidate.validateString(htmlText);
+      45 |   const validationReport = stylish(results);
+    > 46 |   expect(validationReport).toBe('');
+         |                            ^
+      47 | }
+      48 |
+      49 | module.exports = {
+
+      at validateHTML (test-runner/jsdom-helpers.js:46:28)
+      at Object.<anonymous> (2-Browsers/Week1/unit-tests/ex1-bookList.test.js:42:5)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        6.868 s
+Ran all test suites matching /ex1-bookList.test.js/i.
+2022-01-20 11:27:17 info: ----------------------------------------
+2022-01-20 11:27:17 info: >>> Running Unit Test `ex1-bookList` <<<
+2022-01-20 11:27:17 info: ----------------------------------------
+2022-01-20 11:27:22 info: All unit tests passed.
+2022-01-20 11:27:25 info: All steps were completed successfully
+2022-01-20 11:27:32 info: ---------------------------------------
+2022-01-20 11:27:32 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2022-01-20 11:27:32 info: ---------------------------------------
+2022-01-20 11:27:39 info: All unit tests passed.
+2022-01-20 11:27:42 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:18:24 - Unknown word (Doner)
+
+2022-01-20 11:30:18 info: ------------------------------------------
+2022-01-20 11:30:18 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2022-01-20 11:30:18 info: ------------------------------------------
+2022-01-20 11:30:21 info: All unit tests passed.
+2022-01-20 11:30:27 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:11:52 - Unknown word (Xdpd)
+
