@@ -166,3 +166,8 @@ ex3-hijackLogo.js:11:52 - Unknown word (Xdpd)
 2022-01-31 12:26:57 info: ---------------------------------------
 2022-01-31 12:27:09 info: All unit tests passed.
 2022-01-31 12:27:15 info: All steps were completed successfully
+2022-01-31 12:54:47 info: --------------------------------------------
+2022-01-31 12:54:47 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2022-01-31 12:54:47 info: --------------------------------------------
+2022-01-31 12:55:03 info: All unit tests passed.
+2022-01-31 12:55:12 info: All steps were completed successfully

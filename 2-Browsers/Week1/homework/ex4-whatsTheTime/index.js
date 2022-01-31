@@ -36,6 +36,7 @@ function addCurrentTime() {
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
     div.textContent = `${hours} : ${minutes} : ${seconds}`;
+    console.log(`${hours} : ${minutes} : ${seconds}`)
   }
   setInterval(timer,1000);
 
