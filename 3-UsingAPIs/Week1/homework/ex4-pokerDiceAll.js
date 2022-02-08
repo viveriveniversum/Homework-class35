@@ -27,9 +27,9 @@ exercise file.
 const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
-  // TODO Refactor this function
   const dice = [1, 2, 3, 4, 5];
-  return rollDie(1);
+  const fiveInOne = dice.map((die) => rollDie(die))
+  return Promise.all(fiveInOne)
 }
 
 function main() {
@@ -43,3 +43,6 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+/*Here we passed in an array that consists of promises. Promise.all method rejects
+immediately. Although it rejects, continues to complete all arguments passed in*/
