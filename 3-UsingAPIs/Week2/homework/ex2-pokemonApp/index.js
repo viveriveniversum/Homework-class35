@@ -22,18 +22,59 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchData(url) {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error('HTTP Request Error!');
+  }
+  const data = res.json();
+  return data;
 }
 
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchAndPopulatePokemons(pokemon) {
+  const button = document.createElement('button');
+  button.textContent = 'New Pokemon';
+  let body = document.querySelector('body');
+  body.appendChild(button);
+  button.addEventListener('click', async () => {
+    const poke = await fetchData(pokemon);
+    let select = document.createElement('select');
+    select.id = 'mySel';
+    poke.results.forEach((element) => {
+      const opt = document.createElement('option');
+      opt.text = element.name;
+      select.appendChild(opt);
+    });
+    button.disabled = true;
+    body.appendChild(select);
+  });
+  const select = document.getElementById('mySel');
+  select.addEventListener('change', async () => {
+    await fetchImage(select.value);
+  });
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchImage(pokemon) {
+  try {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    const body = document.querySelector('body');
+    const data = await fetchData(url);
+    const img = document.createElement('img');
+    img.src = data.sprites.front_default;
+    body.appendChild(img);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-function main() {
-  // TODO complete this function
+async function main() {
+  try {
+    await fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon');
+  } catch (e) {
+    console.log(e);
+  }
 }
+
+window.addEventListener('load', main);
+//https://pokeapi.co/api/v2/pokemon/{id or name}/
+//https://pokeapi.co/api/v2/pokemon/?limit=5
