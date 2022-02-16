@@ -32,26 +32,23 @@ async function fetchData(url) {
 }
 
 async function fetchAndPopulatePokemons(pokemon) {
-  const button = document.createElement('button');
-  button.textContent = 'New Pokemon';
-  let body = document.querySelector('body');
-  body.appendChild(button);
-  button.addEventListener('click', async () => {
+  try {
     const poke = await fetchData(pokemon);
-    let select = document.createElement('select');
-    select.id = 'mySel';
+    const body = document.querySelector('body');
+    const select = document.createElement('select');
+    select.id = 'select';
     poke.results.forEach((element) => {
-      const opt = document.createElement('option');
-      opt.text = element.name;
-      select.appendChild(opt);
+      const option = document.createElement('option');
+      option.text = element.name;
+      select.appendChild(option);
     });
-    button.disabled = true;
     body.appendChild(select);
-  });
-  const select = document.getElementById('mySel');
-  select.addEventListener('change', async () => {
-    await fetchImage(select.value);
-  });
+    select.addEventListener('change', async () => {
+      await fetchImage(select.value);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 async function fetchImage(pokemon) {
@@ -59,6 +56,9 @@ async function fetchImage(pokemon) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     const body = document.querySelector('body');
     const data = await fetchData(url);
+    if (document.querySelector('img')) {
+      body.removeChild(document.querySelector('img'));
+    }
     const img = document.createElement('img');
     img.src = data.sprites.front_default;
     body.appendChild(img);
@@ -69,12 +69,17 @@ async function fetchImage(pokemon) {
 
 async function main() {
   try {
-    await fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon');
+    const button = document.createElement('button');
+    button.textContent = 'New Pokemon';
+    const body = document.querySelector('body');
+    body.appendChild(button);
+    button.addEventListener('click', async () => {
+      await fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon');
+      button.style.display = 'none';
+    });
   } catch (e) {
     console.log(e);
   }
 }
 
 window.addEventListener('load', main);
-//https://pokeapi.co/api/v2/pokemon/{id or name}/
-//https://pokeapi.co/api/v2/pokemon/?limit=5
