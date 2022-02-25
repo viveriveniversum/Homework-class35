@@ -11,16 +11,15 @@ Rewrite this function, but replace the callback syntax with the Promise syntax:
 ------------------------------------------------------------------------------*/
 // TODO see above
 const getAnonName = (firstName) => {
-  return new Promise((resolve,reject) =>{
-    const fullName = `${firstName} Doe`;
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (firstName) {
-        resolve(fullName)
-      }else{
+        resolve(`${firstName} Doe`);
+      } else {
         reject("You didn't pass in a first name!");
       }
     }, 1000);
-  })
+  });
 };
 
 function main() {
