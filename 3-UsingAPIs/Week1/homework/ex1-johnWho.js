@@ -16,7 +16,8 @@ const getAnonName = (firstName) => {
       if (firstName) {
         resolve(`${firstName} Doe`);
       } else {
-        reject("You didn't pass in a first name!");
+        const err = new Error("You didn't pass in a first name!");
+        reject(err);
       }
     }, 1000);
   });
