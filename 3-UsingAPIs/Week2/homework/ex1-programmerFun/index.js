@@ -20,8 +20,7 @@ Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-Usin
 async function requestData(url) {
   const res = await fetch(url);
   if (res.ok) {
-    const data = res.json();
-    return data;
+    return res.json();
   } else {
     throw new Error('Something went wrong!');
   }
@@ -29,16 +28,14 @@ async function requestData(url) {
 
 async function renderImage(data) {
   const img = document.createElement('img');
-  const body = document.querySelector('body');
   img.src = data.img;
-  body.appendChild(img);
+  document.body.appendChild(img);
 }
 
 function renderError(error) {
-  const body = document.querySelector('body');
   const err = document.createElement('h1');
   err.textContent = error;
-  body.appendChild(err);
+  document.body.appendChild(err);
 }
 
 async function main() {

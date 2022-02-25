@@ -34,7 +34,6 @@ async function fetchData(url) {
 async function fetchAndPopulatePokemons(pokemon) {
   try {
     const poke = await fetchData(pokemon);
-    const body = document.querySelector('body');
     const select = document.createElement('select');
     select.id = 'select';
     poke.results.forEach((element) => {
@@ -42,7 +41,7 @@ async function fetchAndPopulatePokemons(pokemon) {
       option.text = element.name;
       select.appendChild(option);
     });
-    body.appendChild(select);
+    document.body.appendChild(select);
     select.addEventListener('change', async () => {
       await fetchImage(select.value);
     });
@@ -54,14 +53,13 @@ async function fetchAndPopulatePokemons(pokemon) {
 async function fetchImage(pokemon) {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-    const body = document.querySelector('body');
     const data = await fetchData(url);
     if (document.querySelector('img')) {
       body.removeChild(document.querySelector('img'));
     }
     const img = document.createElement('img');
     img.src = data.sprites.front_default;
-    body.appendChild(img);
+    document.body.appendChild(img);
   } catch (e) {
     console.error(e);
   }
@@ -71,8 +69,7 @@ async function main() {
   try {
     const button = document.createElement('button');
     button.textContent = 'New Pokemon';
-    const body = document.querySelector('body');
-    body.appendChild(button);
+    document.body.appendChild(button);
     button.addEventListener('click', async () => {
       await fetchAndPopulatePokemons('https://pokeapi.co/api/v2/pokemon');
       button.style.display = 'none';
