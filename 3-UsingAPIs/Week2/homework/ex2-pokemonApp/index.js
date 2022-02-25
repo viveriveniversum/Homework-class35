@@ -55,7 +55,7 @@ async function fetchImage(pokemon) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     const data = await fetchData(url);
     if (document.querySelector('img')) {
-      body.removeChild(document.querySelector('img'));
+      document.body.removeChild(document.querySelector('img'));
     }
     const img = document.createElement('img');
     img.src = data.sprites.front_default;
